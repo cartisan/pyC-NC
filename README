@@ -1,0 +1,2 @@
+Implementation of the term extraction algorithm from the 1997 paper "Automatic Term Recognition Using Contextual Cues" by Frantzi et al.
+Used to extract a certain percentage of top candidates for terms from a text using termhood and contextual cues.
