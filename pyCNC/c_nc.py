@@ -226,38 +226,3 @@ class C_NC_TermExtractor(object):
             c_value = c_value - float(1)/len(containing_ngrams)*dependency_score
 
         self.c_values.append((ngram, c_value))
-
-
-def test_snakes():
-    from corpus import CorpusReader
-    from pprint import pprint
-
-    c = CorpusReader("knoex/corpora/snakes.corp")
-
-    text = c.get_corpus()
-    extractor = C_NC_TermExtractor(text)
-    extractor.compute_cnc()
-    #pprint(extractor.compute_cnc())
-    #pprint(extractor.__dict__)
-    pprint([(word, nc_val) for word, nc_val in
-            extractor.nc_values[:int(TERM_PERCENTAGE * len(extractor.nc_values))]])
-    print "\n###################################\n"
-    pprint([(word, c_val) for word, c_val in
-            extractor.c_values[:int(TERM_PERCENTAGE * len(extractor.c_values))]])
-
-
-def test_execution():
-    """ Method loads a sample corpus, executes the extraction
-        and prints the state of the etractor for inspection.
-    """
-    #f = open('corpora/easy', 'r')
-    #text = f.read()
-    #f.close()
-
-    from corpus import get_wiki_text
-    text = get_wiki_text()
-
-    extractor = C_NC_TermExtractor(text)
-    extractor.compute_cnc()
-    import pprint
-    pprint.pprint(extractor.__dict__)
