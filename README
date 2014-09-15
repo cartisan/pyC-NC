@@ -1,2 +1,13 @@
 Implementation of the term extraction algorithm from the 1997 paper "Automatic Term Recognition Using Contextual Cues" by Frantzi et al.
 Used to extract a certain percentage of top candidates for terms from a text using termhood and contextual cues.
+
+
+Use pip for installation: ```pip install git+git://github.com/cartisan/pyC-NC```
+
+
+To execute the term-extraction: Instantiate the C_NC_TermExtractor class with your text and execute it's compute_cnc method.
+
+```
+    extractor = C_NC_TermExtractor(text)
+    terms = extractor.compute_cnc()
+```
